@@ -1,8 +1,8 @@
 sources:
 
   - name: postgres 
-    schema: public # this is the schema our raw data lives in
-    database: raw # this is the name of the database that our source data lives in
+    schema: public
+    database: raw
 
     quoting:
       database: false

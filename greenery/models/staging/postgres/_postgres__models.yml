@@ -1,6 +1,6 @@
 models:
   - name: stg_postgres__addresses
-    description: Staging model for addresses
+    description: Staging model for customer addresses
     columns:
       - name: address_id
         description: UUID for each unique address on the platform

@@ -39,7 +39,7 @@ models:
       - name: event_type
         description: Type of event (e.g., click, purchase)
       - name: order_id
-        description: UUID of the associated order (for checkout events)
+        description: UUID of the associated order
         tests:
           - relationships:
               to: ref('stg_postgres__orders')

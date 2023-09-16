@@ -30,8 +30,10 @@ with orders_grouped_by_hour as (
         DEV_DB.DBT_AMELIASIGMACOMPUTINGCOM.STG_POSTGRES__ORDERS
     group by 2
 )
-select Round(Avg(orders_per_hour), 2)
-from orders_grouped_by_hour
+select
+    Round(Avg(orders_per_hour), 2)
+from
+    orders_grouped_by_hour
 ```
 ----
 
@@ -51,7 +53,8 @@ with delivery_times as (
     group by all
 )
 select Round(Avg(days_to_delivery), 2)
-from delivery_times
+from
+    delivery_times
 ```
 ----
     
@@ -94,8 +97,8 @@ with sessions_grouped_by_hour as (
         DEV_DB.DBT_AMELIASIGMACOMPUTINGCOM.STG_POSTGRES__EVENTS
     group by all
 )
-            select
-                Round(Avg(unique_sessions), 2) as average_unique_sessions_per_hour
-            from
-                sessions_grouped_by_hour
+select
+    Round(Avg(unique_sessions), 2) as average_unique_sessions_per_hour
+from
+    sessions_grouped_by_hour
 ```

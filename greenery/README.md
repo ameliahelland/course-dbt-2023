@@ -1,3 +1,6 @@
+WEEK 1
+==
+
 **Question 1:** *How many users do we have?*
 
 **Answer:** 130

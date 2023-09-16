@@ -9,11 +9,11 @@ sources:
       schema: false
       identifier: false
 
-    freshness: # this is where we define freshness thresholds
+    freshness: # define freshness thresholds
       warn_after: {count: 24, period: hour}
       error_after: {count: 48, period: hour}
 
-    tables: # this is where we define table metadata (name, description, load timestamps)
+    tables: # define table metadata (name, description, load timestamps)
       - name: events 
         loaded_at_field: created_at
         description: >

@@ -16,6 +16,6 @@ SELECT
   price,
   inventory
 FROM 
-  {{ source("postgres", "products") }}
+  {{ source('postgres', 'products') }}
 
 {% endsnapshot %}

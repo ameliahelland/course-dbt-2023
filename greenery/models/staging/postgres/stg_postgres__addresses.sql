@@ -5,9 +5,9 @@
 }}
 
 SELECT 
-    address_id::VARCHAR(256),
-    address::VARCHAR(8192),
-    zipcode::INTEGER,
-    state::VARCHAR(256),
-    country::VARCHAR(256)
+    address_id,
+    address,
+    zipcode,
+    state,
+    country
 FROM {{ source('postgres', 'addresses') }}

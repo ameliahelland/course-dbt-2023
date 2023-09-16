@@ -5,8 +5,8 @@
 }}
 
 SELECT 
-    product_id::VARCHAR(256),
-    name::VARCHAR(1024),
-    price::REAL,
-    inventory::INTEGER
+    product_id,
+    name,
+    price,
+    inventory
 FROM {{ source('postgres', 'products') }}

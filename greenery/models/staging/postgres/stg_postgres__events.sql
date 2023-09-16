@@ -5,12 +5,12 @@
 }}
 
 SELECT 
-    event_id::VARCHAR(256),
-    session_id::VARCHAR(256),
-    user_id::VARCHAR(256),
-    page_url::VARCHAR(4096),
-    created_at::TIMESTAMP,
-    event_type::VARCHAR(128),
-    order_id::VARCHAR(256),
-    product_id::VARCHAR(256)
+    event_id,
+    session_id,
+    user_id,
+    page_url,
+    created_at,
+    event_type,
+    order_id,
+    product_id
 FROM {{ source('postgres', 'events') }}

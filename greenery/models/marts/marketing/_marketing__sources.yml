@@ -1,0 +1,23 @@
+sources:
+
+  - name: marketing
+    schema: public
+    database: raw
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables: # define table metadata (name, description, load timestamps)
+      - name: promo_profitability
+        description: >
+          Contains information about how profitable each promo was.
+      
+      - name: promos_by_state_and_zipcode
+        description: >
+          Contains information about promos per state and zipcode.
+
+      - name: promos_user_session_events
+        description: >
+          Flags session events associated with a promo applied to an order.

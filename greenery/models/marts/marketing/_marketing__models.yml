@@ -1,0 +1,56 @@
+models:
+  - name: promo_profitability
+    description: Model for finding how profitable each promo was
+    columns:
+      - name: PromoId
+        description: Id of promo
+        tests:
+          - unique
+          - not_null
+      - name: Discount
+        description: Discount per promo use
+      - name: TotalOrders
+        description: The count of distinct orders with the promo applied
+      - name: CampaignProfit
+        description: Total profit for each promo campaign
+
+  - name: promos_by_state_and_zipcode
+    description: Model for promos by state and zipcode
+    columns:
+      - name: state
+        description: State where order was placed
+        tests:
+          - not_null
+      - name: zipcode
+        description: Zipcode in which order was placed
+        tests:
+          - not_null
+      - name: TotalOrders
+        description: Total orders placed in each zipcode
+      - name: PromoOrders
+        description: Total orders with promo applied in each zipcode
+
+  - name: promos_user_session_events
+    description: Model for promos across user session events
+    columns:
+      - name: UserId
+        description: UUID of user
+        tests:
+          - not_null
+      - name: SessionId
+        description: UUID of session
+        tests:
+          - not_null
+      - name: EventId
+        description: UUID of event
+        tests:
+          - not_null
+      - name: EventCreatedAt
+        description: Timestamp of event
+        tests:
+          - not_null
+      - name: OrderId
+        description: UUID of order
+      - name: OrderCreatedAt
+        description: Timestamp of order being placed
+        

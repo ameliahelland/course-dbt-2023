@@ -20,15 +20,12 @@ SELECT
     o.tracking_id AS TrackingId,
     o.shipping_service AS ShippingService,
     o.estimated_delivery_at AS EstimatedDeliveryAt,
-    o.delivered_at AS DeliveredAt,
-    p.name AS ProductName
+    o.delivered_at AS DeliveredAt
 FROM
     {{ ref('postgres.stg_postgres__events') }} e
 LEFT JOIN
     {{ ref('postgres.stg_postgres__users') }} u ON e.user_id = u.user_id
 LEFT JOIN
     {{ ref('postgres.stg_postgres__orders') }} o ON e.order_id = o.order_id
-LEFT JOIN
-    {{ ref('postgres.stg_postgres__products') }} p ON e.product_id = p.product_id
 ORDER BY
     e.session_id, e.created_at

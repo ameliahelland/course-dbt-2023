@@ -20,7 +20,7 @@ WITH RepeatOrderUsers AS (
 ),
 RepeatOrderDetails AS (
     SELECT
-        r.user_id,
+        r.user_id AS UserId,
         r.TotalOrders,
         r.FirstOrderDate,
         r.LatestOrderDate,
@@ -36,7 +36,7 @@ RepeatOrderDetails AS (
         r.user_id, r.TotalOrders, r.FirstOrderDate, r.LatestOrderDate, r.TotalPayments
 )
 SELECT
-    rd.user_id AS UserId,
+    rd.UserId,
     u.first_name AS FirstName,
     u.last_name AS LastName,
     u.email AS Email,

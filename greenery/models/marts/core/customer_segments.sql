@@ -15,9 +15,9 @@ SELECT
     END AS CustomerSegment,
     COUNT(o.order_id) as TotalOrders
 FROM
-    {{ ref('postgres.stg_postgres__users') }} AS u
+    {{ source('postgres', 'stg_postgres__users') }} AS u
 LEFT JOIN
-    {{ ref('postgres.stg_postgres__orders') }} AS o
+    {{ source('postgres', 'stg_postgres__orders') }} AS o
 ON
     u.user_id = o.user_id
 GROUP BY

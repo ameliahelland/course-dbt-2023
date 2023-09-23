@@ -13,7 +13,7 @@ SELECT
         WHEN COUNT(o.order_id) >= 2 THEN 'Regular'
         ELSE 'Infrequent'
     END AS CustomerSegment,
-    COUNT(o.order_id) as total_orders
+    COUNT(o.order_id) as TotalOrders
 FROM
     {{ ref('postgres.stg_postgres__users') }} AS u
 LEFT JOIN

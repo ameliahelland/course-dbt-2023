@@ -1,0 +1,27 @@
+sources:
+
+  - name: products
+    schema: public
+    database: raw
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables: # define table metadata (name, description, load timestamps)
+      - name: inventory_and_order_statistics 
+        description: >
+          Contains information about product inventory used and available. Also includes order statistics per product.
+      
+      - name: pageviews 
+        description: >
+          Contains information about total pageviews per product.
+
+      - name: revenues 
+        description: >
+          Contains information about revenue per product.
+
+      - name: related_products
+        description: >
+          Contains information about how often pairs of products are ordered together.

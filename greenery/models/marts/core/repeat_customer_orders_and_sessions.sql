@@ -31,7 +31,7 @@ RepeatOrderDetails AS (
     FROM
         RepeatOrderUsers r
     LEFT JOIN
-        {{ ref('postgres.stg_postgres__events') }} e ON r.user_id = e.user_id
+        {{ source('postgres', 'stg_postgres__events') }} e ON r.user_id = e.user_id
     GROUP BY
         r.user_id, r.TotalOrders, r.FirstOrderDate, r.LatestOrderDate, r.TotalPayments
 )
@@ -50,6 +50,6 @@ SELECT
 FROM
     RepeatOrderDetails rd
 LEFT JOIN
-    {{ ref('postgres.stg_postgres__users') }} u ON rd.UserId = u.user_id
+    {{ source('postgres', 'stg_postgres__users') }} u ON rd.UserId = u.user_id
 ORDER BY
     rd.TotalOrders DESC

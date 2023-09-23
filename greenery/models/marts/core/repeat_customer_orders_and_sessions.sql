@@ -37,9 +37,9 @@ RepeatOrderDetails AS (
 )
 SELECT
     rd.user_id AS UserId,
-    u.first_name AS UserFirstName,
-    u.last_name AS UserLastName,
-    u.email AS UserEmail,
+    u.first_name AS FirstName,
+    u.last_name AS LastName,
+    u.email AS Email,
     rd.TotalOrders,
     rd.TotalPayments,
     rd.FirstOrderDate,

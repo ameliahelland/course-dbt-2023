@@ -5,9 +5,9 @@
 }}
 
 SELECT
-    u.user_id,
-    u.first_name,
-    u.last_name,
+    u.user_id AS UserId,
+    u.first_name AS FirstName,
+    u.last_name AS LastName,
     a.state,
     a.zipcode,
     CASE
@@ -18,15 +18,15 @@ FROM
     {{ ref('postgres.stg_postgres__users') }} AS u
 LEFT JOIN (
     SELECT
-        user_id,
+        UserId,
         MAX(created_at) AS last_order_date
     FROM
         {{ ref('postgres.stg_postgres__orders') }}
     GROUP BY
-        user_id
+        UserId
 ) AS last_order
 ON
-    u.user_id = last_order.user_id
+    u.user_id = last_order.UserId
 LEFT JOIN 
     {{ ref('postgres.stg_postgres__addresses') }} a
 ON

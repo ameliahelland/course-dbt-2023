@@ -18,7 +18,7 @@ FROM
     {{ source('postgres', 'users') }} AS u
 LEFT JOIN (
     SELECT
-        o.user_id,
+        o.user_id AS UserId,
         MAX(created_at) AS last_order_date
     FROM
         {{ source('postgres', 'orders') }} AS o

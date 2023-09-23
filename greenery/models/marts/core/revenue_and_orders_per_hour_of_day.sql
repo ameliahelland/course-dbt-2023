@@ -11,7 +11,7 @@ SELECT
     ROUND(AVG(order_total), 2) AS AverageOrderTotal,
     COUNT(order_id) AS OrdersPerHour
 FROM
-    {{ ref('postgres.stg_postgres__orders') }}
+    {{ source('postgres', 'stg_postgres__orders') }}
 GROUP BY
     OrderDay, OrderHour
 ORDER BY

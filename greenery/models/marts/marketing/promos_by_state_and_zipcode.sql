@@ -23,8 +23,8 @@ WITH PromoCounts AS (
 SELECT
     pc.state,
     pc.zipcode,
-    pc.total_orders,
-    pc.promo_orders,
+    pc.total_orders AS TotalOrders,
+    pc.promo_orders AS PromoOrders,
     CASE
         WHEN pc.total_orders > 0 THEN Round((pc.promo_orders::FLOAT / pc.total_orders) * 100, 2)
         ELSE 0

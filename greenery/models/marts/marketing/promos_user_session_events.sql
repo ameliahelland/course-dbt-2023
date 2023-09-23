@@ -22,12 +22,12 @@ WITH PromoSessionEvents AS (
         o.promo_id IS NOT NULL
 )
 SELECT
-    pse.user_id,
-    pse.session_id,
-    pse.event_id,
-    pse.event_created_at,
-    pse.order_id,
-    pse.order_created_at,
+    pse.user_id AS UserId,
+    pse.session_id AS SessionId,
+    pse.event_id AS EventId,
+    pse.event_created_at AS EventCreatedAt,
+    pse.order_id AS OrderId,
+    pse.order_created_at AS OrderCreatedAt,
     CASE
         WHEN pse.order_id IS NOT NULL THEN 1
         ELSE 0

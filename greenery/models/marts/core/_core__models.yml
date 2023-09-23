@@ -1,0 +1,118 @@
+models:
+  - name: customers_and_churn_status
+    description: Contains information indicating which customers have churned
+    columns:
+      - name: UserId
+        description: UUID of user
+        tests:
+          - not_null
+      - name: FirstName
+        description: First name of user
+      - name: LastName
+        description: Last name of user
+      - name: State
+        description: State in which user placed orders
+      - name: Zipcode
+        description: Zipcode in which user placed orders
+      - name: ChurnStatus
+        description: Indicates whether the customer has churned as of 2021-02-11
+
+  - name: repeat_customer_orders_and_sessions
+    description: Contains information about how often pairs of products are ordered together.
+    columns:
+      - name: UserId
+        description: UUID of user
+        tests:
+          - not_null
+      - name: FirstName
+        description: First name of user
+      - name: LastName
+        description: Last name of user
+      - name: Email
+        description: Email of user
+      - name: TotalOrders
+        description: Total orders placed by user
+      - name: TotalPayments
+        description: Sum of total payments made by user
+      - name: FirstOrderDate
+        description: User's first order date
+      - name: LastOrderDate
+        description: User's last order date
+      - name: TotalEvents
+        description: Total events per user
+      - name: TotalSessions
+        description: Total sessions per user
+      - name: UniqueProductsViewed
+        description: Total unique products viewed per user
+
+  - name: customer_segments
+    description: Contains information identifying each customer's customer segment.
+    columns:
+      - name: UserId
+        description: UUID of user
+      - name: FirstName
+        description: First name of user
+      - name: LastName
+        description: Last name of user
+      - name: CustomerSegment
+        description: Customer segment each user belongs to
+      - name: TotalOrders
+        description: Total orders placed by user
+
+  - name: orders_by_state_and_zipcode
+    description: Contains order statistics per state and zipcode.
+    columns:
+      - name: State
+        description: State in which users live
+      - name: Zipcode
+        description: Zipcode in which users live
+      - name: OrderCount
+        description: Count of orders placed in zipcode
+
+  - name: revenue_and_orders_per_hour_of_day
+    description: Revenue and total orders placed per hour of day.
+    columns:
+      - name: OrderDay
+        description: Day of order
+      - name: OrderHour
+        description: Hour of order
+      - name: TotalRevenue
+        description: Revenue per order hour
+      - name: AverageOrderTotal
+        description: Average total order payments per hour
+      - name: OrdersPerHour
+        description: Orders made per hour
+
+  - name: session_events_and_user_orders
+    description: Contains information detailing user order information per session.
+    columns:
+      - name: SessionId
+        description: UUID of session
+      - name: PageURL
+        description: URL of page where event took place
+      - name: EventType
+        description: Type of event
+      - name: UserId
+        description: UUID of user
+      - name: FirstName
+        description: First name of user
+      - name: LastName
+        description: Last name of user
+      - name: Email
+        description: Email of user
+      - name: OrderId
+        description: UUID of order
+      - name: OrderCost
+        description: Cost of order
+      - name: ShippingCost
+        description: Cost of shipping
+      - name: OrderTotal
+        description: Total payment amount per order
+      - name: TrackingId
+        description: Shipment tracking number
+      - name: ShippingService
+        description: Shipping service used to deliver order
+      - name: EstimatedDeliveryAt
+        description: Estimated delivery date
+      - name: DeliveredAt
+        description: Timestamp if/when order was delivered

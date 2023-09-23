@@ -10,8 +10,8 @@ WITH product_inventory AS (
         SUM(oi.quantity) AS InventoryUsed,
         p.Inventory,
         COUNT(DISTINCT oi.order_id) AS CountOfDistinctOrders
-    FROM {{ source('postgres', 'stg_postgres__order_items') }} oi
-    JOIN {{ source('postgres', 'stg_postgres__products') }} p
+    FROM {{ source('postgres', 'order_items') }} oi
+    JOIN {{ source('postgres', 'products') }} p
     ON oi.product_id = p.product_id
     GROUP BY ALL
 )

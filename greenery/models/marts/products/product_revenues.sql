@@ -10,9 +10,9 @@ WITH ProductRevenues AS (
         p.name AS ProductName,
         SUM(oi.quantity * p.price) AS Revenue
     FROM
-        {{ source('postgres', 'stg_postgres__products') }} p
+        {{ source('postgres', 'products') }} p
     JOIN
-        {{ source('postgres', 'stg_postgres__order_items') }} oi ON p.product_id = oi.product_id
+        {{ source('postgres', 'order_items') }} oi ON p.product_id = oi.product_id
     GROUP BY
         p.product_id,
         p.name

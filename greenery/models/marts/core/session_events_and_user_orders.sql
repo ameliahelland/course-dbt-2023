@@ -22,10 +22,10 @@ SELECT
     o.estimated_delivery_at AS EstimatedDeliveryAt,
     o.delivered_at AS DeliveredAt
 FROM
-    {{ source('postgres', 'stg_postgres__events') }} e
+    {{ source('postgres', 'events') }} e
 LEFT JOIN
-    {{ source('postgres', 'stg_postgres__users') }} u ON e.user_id = u.user_id
+    {{ source('postgres', 'users') }} u ON e.user_id = u.user_id
 LEFT JOIN
-    {{ source('postgres', 'stg_postgres__orders') }} o ON e.order_id = o.order_id
+    {{ source('postgres', 'orders') }} o ON e.order_id = o.order_id
 ORDER BY
     e.session_id, e.created_at

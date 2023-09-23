@@ -15,19 +15,19 @@ SELECT
         ELSE 'Active'
     END AS ChurnStatus
 FROM
-    {{ source('postgres', 'stg_postgres__users') }} AS u
+    {{ source('postgres', 'users') }} AS u
 LEFT JOIN (
     SELECT
         UserId,
         MAX(created_at) AS last_order_date
     FROM
-        {{ source('postgres', 'stg_postgres__orders') }}
+        {{ source('postgres', 'orders') }}
     GROUP BY
         UserId
 ) AS last_order
 ON
     u.user_id = last_order.UserId
 LEFT JOIN 
-    {{ source('postgres', 'stg_postgres__addresses') }} a
+    {{ source('postgres', 'addresses') }} a
 ON
     a.address_id = u.address_id

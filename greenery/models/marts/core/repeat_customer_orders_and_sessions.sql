@@ -50,6 +50,6 @@ SELECT
 FROM
     RepeatOrderDetails rd
 LEFT JOIN
-    {{ source('postgres', 'stg_postgres__users') }} u ON rd.UserId = u.user_id
+    {{ source('postgres', 'users') }} u ON rd.UserId = u.user_id
 ORDER BY
     rd.TotalOrders DESC

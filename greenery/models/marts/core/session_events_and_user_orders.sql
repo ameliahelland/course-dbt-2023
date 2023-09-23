@@ -5,22 +5,22 @@
 }}
 
 SELECT
-    e.session_id,
-    e.page_url,
-    e.event_type,
+    e.session_id AS SessionId,
+    e.page_url AS PageURL,
+    e.event_type AS EventType,
     e.created_at AS EventTimestamp,
-    e.user_id,
+    e.user_id AS UserId,
     u.first_name AS UserFirstName,
     u.last_name AS UserLastName,
     u.email AS UserEmail,
-    e.order_id,
-    o.order_cost,
-    o.shipping_cost,
-    o.order_total,
-    o.tracking_id,
-    o.shipping_service,
-    o.estimated_delivery_at,
-    o.delivered_at,
+    e.order_id AS OrderId,
+    o.order_cost AS OrderCost,
+    o.shipping_cost AS ShippingCost,
+    o.order_total AS OrderTotal,
+    o.tracking_id AS TrackingId,
+    o.shipping_service AS ShippingService,
+    o.estimated_delivery_at AS EstimatedDeliveryAt,
+    o.delivered_at AS DeliveredAt,
     p.name AS ProductName
 FROM
     {{ ref('postgres.stg_postgres__events') }} e

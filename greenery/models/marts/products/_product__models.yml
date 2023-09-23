@@ -1,0 +1,48 @@
+models:
+  - name: product_inventory_and_order_statistics
+    description: Model for product inventory and order statistics
+    columns:
+      - name: ProductName
+        description: Name of product
+        tests:
+          - unique
+          - not_null
+      - name: InventoryUsed
+        description: The amount of product ordered
+      - name: Inventory
+        description: The amount of product currently available
+      - name: AverageAmountPurchasedPerOrder
+        description: Average amount of product purchased per order
+
+  - name: product_pageviews
+    description: Model for product pageviews
+    columns:
+      - name: ProductName
+        description: Name of product
+        tests:
+          - unique
+          - not_null
+      - name: PageViews
+        description: Number of pageviews per product
+
+  - name: product_revenues
+    description: Model for revenues per product
+    columns:
+      - name: ProductName
+        description: Name of product
+      - name: Revenue
+        description: Revenue per product over orders timeframe
+        
+  - name: related_products
+    description: Model for finding related products
+    columns:
+      - name: BaseProduct
+        description: Product name of item one
+        tests:
+          - not_null
+      - name: FrequentlyOrderedWithProduct
+        description: Product name of item two
+        tests:
+          - not_null
+      - name: Frequency
+        description: Frequency of item one and item two being ordered together

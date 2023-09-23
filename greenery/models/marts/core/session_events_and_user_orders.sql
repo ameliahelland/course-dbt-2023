@@ -12,7 +12,7 @@ SELECT
     e.user_id AS UserId,
     u.first_name AS FirstName,
     u.last_name AS LastName,
-    u.email AS UserEmail,
+    u.email AS Email,
     e.order_id AS OrderId,
     o.order_cost AS OrderCost,
     o.shipping_cost AS ShippingCost,

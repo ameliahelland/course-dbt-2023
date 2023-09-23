@@ -1,0 +1,33 @@
+sources:
+
+  - name: core
+    schema: public
+    database: raw
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables: # define table metadata (name, description, load timestamps)
+      - name: customers_and_churn_status
+        description: >
+          Contains information indicating which customers have churned.
+      
+      - name: repeat_customer_orders_and_sessions
+        description: >
+          Contains information about how often pairs of products are ordered together.
+      
+      - name: customer_segments
+        description: >
+          Contains information identifying each customer's customer segment.
+
+      - name: orders_by_state_and_zipcode
+        description: >
+          Contains order statistics per state and zipcode.
+
+      - name: revenue_and_orders_per_hour_of_day
+        description: Revenue and total orders placed per hour of day.
+      
+      - name: session_events_and_user_orders
+        description: Contains information detailing user order information per session.

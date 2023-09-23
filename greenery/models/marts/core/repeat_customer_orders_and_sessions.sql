@@ -36,7 +36,7 @@ RepeatOrderDetails AS (
         r.user_id, r.TotalOrders, r.FirstOrderDate, r.LatestOrderDate, r.TotalPayments
 )
 SELECT
-    rd.user_id,
+    rd.user_id AS UserId,
     u.first_name AS UserFirstName,
     u.last_name AS UserLastName,
     u.email AS UserEmail,
@@ -50,6 +50,6 @@ SELECT
 FROM
     RepeatOrderDetails rd
 LEFT JOIN
-    {{ ref('postgres.stg_postgres__users') }} u ON rd.user_id = u.user_id
+    {{ ref('postgres.stg_postgres__users') }} u ON rd.UserId = u.user_id
 ORDER BY
     rd.TotalOrders DESC

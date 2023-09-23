@@ -27,7 +27,9 @@ sources:
           Contains order statistics per state and zipcode.
 
       - name: revenue_and_orders_per_hour_of_day
-        description: Revenue and total orders placed per hour of day.
+        description: >
+          Revenue and total orders placed per hour of day.
       
       - name: session_events_and_user_orders
-        description: Contains information detailing user order information per session.
+        description: >
+          Contains information detailing user order information per session.

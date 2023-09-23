@@ -12,7 +12,7 @@ WITH RepeatOrderUsers AS (
         MIN(o.created_at) AS FirstOrderDate,
         SUM(o.order_cost) AS TotalPayments
     FROM
-        {{ ref('postgres.orders') }} o
+        {{ source('postgres', 'orders') }} o
     GROUP BY
         o.user_id
     HAVING

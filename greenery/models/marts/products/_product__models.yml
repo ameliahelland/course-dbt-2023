@@ -24,6 +24,8 @@ models:
           - not_null
       - name: PageViews
         description: Number of pageviews per product
+        tests:
+          - positive_values
 
   - name: product_revenues
     description: Model for revenues per product

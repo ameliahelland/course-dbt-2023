@@ -20,6 +20,7 @@ SELECT
 FROM
     orders_placed_per_user
 ```
+
 ------------
 
 
@@ -99,6 +100,7 @@ GROUP BY
 ORDER BY
     OrderHour
 ```
+
 ------------
 
 
@@ -158,6 +160,7 @@ LEFT JOIN
 ORDER BY
     COALESCE(uos.distinct_order_count, 0) ASC, uos.last_delivery_date ASC
 ```
+
 ------------
 
 
@@ -196,24 +199,28 @@ decision-making and marketing strategies.
  
  **Answer:**
  ![dbt-dag](https://github.com/ameliahelland/course-dbt-2023/assets/115895001/555f61f2-98c9-49a4-b35c-f972fd7367c8)
+ 
 ------------
 
 
  **Question 5.1:** *What assumptions are you making about each model? (i.e. why are you adding each test?)*
  
  **Answer:** *I'm assuming that the counts of things like sessions, orders, and pageviews should be positive.*
+ 
 ------------
 
 
  **Question 5.2:** *Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?*
 
  **Answer:** *I didn't find any bad data with my tests so I didn't clean anything.*
+ 
 ------------
 
 
  **Question 6:** *Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.*
 
  **Answer:** *I'd write a cron job to run the dbt tests on a schedule, and I'd alert stakeholders by scheduling an export of the bad data rows.*
+ 
 ------------
 
 
@@ -249,4 +256,5 @@ WHERE
 ORDER BY
     product_id, change_date
 ```
+
 ------------

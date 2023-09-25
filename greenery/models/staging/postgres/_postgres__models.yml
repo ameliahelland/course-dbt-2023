@@ -68,6 +68,8 @@ models:
               field: product_id
       - name: quantity
         description: Number of units of the product ordered
+        tests:
+          - positive_values
         
   - name: stg_postgres__orders
     description: Staging model for orders
@@ -139,6 +141,8 @@ models:
           - not_null
       - name: discount
         description: Absolute dollar amount given off with the code
+        tests:
+          - positive_values
       - name: status
         description: Status of the promo code (active/disabled)
   

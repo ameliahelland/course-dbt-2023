@@ -10,18 +10,7 @@ SELECT
     Inventory,
     AverageAmountPurchasedPerOrder,
     PageViews,
-    Revenue,
-    MostPopularItem1,
-    FrequencyItem1,
-    MostPopularItem2,
-    FrequencyItem2,
-    MostPopularItem3,
-    FrequencyItem3,
-    MostPopularItem4,
-    FrequencyItem4,
-    MostPopularItem5,
-    FrequencyItem5
-
+    Revenue
 FROM
     {{ ref('int__product_inventory_and_order_statistics') }} AS pios
 LEFT JOIN
@@ -35,4 +24,4 @@ ON
 LEFT JOIN
     {{ ref('int__related_products') }} AS rp
 ON
-    pios.ProductName = rp.ProductName
+    pios.ProductName = rp.BaseProduct

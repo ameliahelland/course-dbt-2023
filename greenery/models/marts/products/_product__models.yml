@@ -24,25 +24,7 @@ models:
           - positive_values
       - name: Revenue
         description: The amount of revenue each product made
-      - name: MostPopularItem1
-        description: The most popular product ordered with the base product
-      - name: FrequencyItem1
-        description: The frequency of orders in which the base product was ordered with the first most popular co-ordered item
-      - name: MostPopularItem2
-      - name: FrequencyItem2
-        description: The frequency of orders in which the base product was ordered with the second most popular co-ordered item
-      - name: MostPopularItem3
-        description: The second most popular product ordered with the base product
-      - name: FrequencyItem3
-        description: The frequency of orders in which the base product was ordered with the third most popular co-ordered item
-      - name: MostPopularItem4
-        description: The third most popular product ordered with the base product
-      - name: FrequencyItem4
-        description: The frequency of orders in which the base product was ordered with the fourth most popular co-ordered item
-      - name: MostPopularItem5
-        description: The fifth most popular product ordered with the base product
-      - name: FrequencyItem5
-        description: The frequency of orders in which the base product was ordered with the fifth most popular co-ordered item
+ 
 
   - name: int__product_inventory_and_order_statistics
     description: Model for product inventory and order statistics
@@ -84,12 +66,18 @@ models:
     description: Model for finding related products
     columns:
       - name: BaseProduct
-        description: Product name of item one
+        description: Unique product name of item one
         tests:
           - not_null
-      - name: FrequentlyOrderedWithProduct
-        description: Product name of item two
-        tests:
-          - not_null
-      - name: Frequency
-        description: Frequency of item one and item two being ordered together
+      - name: TopProduct1
+        description: Name of the first most popular product ordered with the base product
+      - name: Frequency1
+        description: Frequency of the first most popular product being ordered with the base product
+      - name: TopProduct2
+        description: Name of the first most popular product ordered with the base product
+      - name: Frequency2
+        description: Frequency of the second most popular product being ordered with the base product
+      - name: TopProduct3
+        description: Name of the first most popular product ordered with the base product
+      - name: Frequency3
+        description: Frequency of the third most popular product being ordered with the base product

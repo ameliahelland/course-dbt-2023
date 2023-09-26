@@ -11,7 +11,8 @@ WITH PromoSessionEvents AS (
         e.event_id,
         e.created_at AS event_created_at,
         o.order_id,
-        o.created_at AS order_created_at
+        o.created_at AS order_created_at,
+        o.promo_id
     FROM
         {{ ref('stg_postgres__events') }} AS e
     LEFT JOIN
@@ -29,7 +30,7 @@ SELECT
     pse.order_id AS OrderId,
     pse.order_created_at AS OrderCreatedAt,
     CASE
-        WHEN pse.order_id IS NOT NULL THEN 1
+        WHEN pse.order_id IS NOT NULL AND pse.promo_id IS NOT NULL THEN 1
         ELSE 0
     END AS promo_order_flag
 FROM

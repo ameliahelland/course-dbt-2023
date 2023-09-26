@@ -9,9 +9,9 @@ SELECT
     zipcode,
     COUNT(*) AS OrderCount
 FROM
-    {{ source('postgres', 'orders') }} AS o
+    {{ ref('stg_postgres__orders') }} AS o
 JOIN
-    {{ source('postgres', 'addresses') }} AS a
+    {{ ref('stg_postgres__addresses') }} AS a
 ON
     o.address_id = a.address_id
 GROUP BY

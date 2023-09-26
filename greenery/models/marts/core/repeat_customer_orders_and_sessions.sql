@@ -12,7 +12,7 @@ WITH RepeatOrderUsers AS (
         MIN(o.created_at) AS FirstOrderDate,
         SUM(o.order_cost) AS TotalPayments
     FROM
-        {{ source('postgres', 'orders') }} o
+        {{ ref('stg_postgres__orders') }} o
     GROUP BY
         o.user_id
     HAVING
@@ -31,7 +31,7 @@ RepeatOrderDetails AS (
     FROM
         RepeatOrderUsers r
     LEFT JOIN
-        {{ source('postgres', 'events') }} e ON r.user_id = e.user_id
+        {{ ref('stg_postgres__events') }} e ON r.user_id = e.user_id
     GROUP BY
         r.user_id, r.TotalOrders, r.FirstOrderDate, r.LatestOrderDate, r.TotalPayments
 )
@@ -50,6 +50,6 @@ SELECT
 FROM
     RepeatOrderDetails rd
 LEFT JOIN
-    {{ source('postgres', 'users') }} u ON rd.UserId = u.user_id
+    {{ ref('stg_postgres__users') }} u ON rd.UserId = u.user_id
 ORDER BY
     rd.TotalOrders DESC

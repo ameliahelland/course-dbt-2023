@@ -61,23 +61,23 @@ models:
         description: Name of product
       - name: Revenue
         description: Revenue per product over orders timeframe
-        
-  - name: int__related_products
-    description: Model for finding related products
+  
+  - name: int__product_pageviews
+    description: Model for pageviews per product
     columns:
-      - name: BaseProduct
-        description: Unique product name of item one
-        tests:
-          - not_null
-      - name: TopProduct1
-        description: Name of the first most popular product ordered with the base product
-      - name: Frequency1
-        description: Frequency of the first most popular product being ordered with the base product
-      - name: TopProduct2
-        description: Name of the first most popular product ordered with the base product
-      - name: Frequency2
-        description: Frequency of the second most popular product being ordered with the base product
-      - name: TopProduct3
-        description: Name of the first most popular product ordered with the base product
-      - name: Frequency3
-        description: Frequency of the third most popular product being ordered with the base product
+      - name: ProductName
+      - name: PageViews
+
+  - name: int__product_revenues
+    description: Model for revenue per product
+    columns:
+      - name: ProductName
+      - name: Revenue
+
+  - name: int__product_inventory_and_order_statistics
+    description: Model to capture inventory and order statistics per product
+    columns:
+      - name: ProductName
+      - name: InventoryUsed
+      - name: Inventory
+      - name: AverageAmountPurchasedPerOrder

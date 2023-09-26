@@ -21,7 +21,3 @@ LEFT JOIN
     {{ ref('int__product_revenues') }} AS pr
 ON
     pios.ProductName = pr.ProductName
-LEFT JOIN
-    {{ ref('int__related_products') }} AS rp
-ON
-    pios.ProductName = rp.BaseProduct

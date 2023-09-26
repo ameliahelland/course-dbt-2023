@@ -53,4 +53,6 @@ models:
         description: UUID of order
       - name: OrderCreatedAt
         description: Timestamp of order being placed
+      - name: PromoId
+        description: IDs of the promos applied to various orders
         

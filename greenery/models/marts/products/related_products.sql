@@ -11,11 +11,11 @@ WITH ProductOrderCounts AS (
         op.product_id AS RelatedProductID,
         COUNT(*) AS Frequency
     FROM
-        {{ source('postgres', 'order_items') }} oi
+        {{ ref('stg_postgres__order_items') }} oi
     JOIN
-        {{ source('postgres', 'products') }} p ON oi.product_id = p.product_id
+        {{ ref('stg_postgres__products') }} p ON oi.product_id = p.product_id
     JOIN
-        {{ source('postgres', 'order_items') }} op ON oi.order_id = op.order_id
+        {{ ref('stg_postgres__order_items') }} op ON oi.order_id = op.order_id
     WHERE
         oi.product_id <> op.product_id
     GROUP BY
@@ -35,7 +35,7 @@ SELECT
 FROM
     RankedProductPairs r
 JOIN
-    {{ source('postgres', 'products') }} p ON r.RelatedProductID = p.product_id
+    {{ ref('stg_postgres__products') }} p ON r.RelatedProductID = p.product_id
 WHERE
     r.RowNum = 1
 ORDER BY

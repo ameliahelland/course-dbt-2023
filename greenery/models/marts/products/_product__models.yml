@@ -17,10 +17,32 @@ models:
           - positive_values
       - name: AverageAmountPurchasedPerOrder
         description: Average amount of the product purchased per order
+        tests:
+          - positive_values
       - name: PageViews
         description: The number of total pageviews for this product
+          - positive_values
       - name: Revenue
         description: The amount of revenue each product made
+      - name: MostPopularItem1
+        description: The most popular product ordered with the base product
+      - name: FrequencyItem1
+        description: The frequency of orders in which the base product was ordered with the first most popular co-ordered item
+      - name: MostPopularItem2
+      - name: FrequencyItem2
+        description: The frequency of orders in which the base product was ordered with the second most popular co-ordered item
+      - name: MostPopularItem3
+        description: The second most popular product ordered with the base product
+      - name: FrequencyItem3
+        description: The frequency of orders in which the base product was ordered with the third most popular co-ordered item
+      - name: MostPopularItem4
+        description: The third most popular product ordered with the base product
+      - name: FrequencyItem4
+        description: The frequency of orders in which the base product was ordered with the fourth most popular co-ordered item
+      - name: MostPopularItem5
+        description: The fifth most popular product ordered with the base product
+      - name: FrequencyItem5
+        description: The frequency of orders in which the base product was ordered with the fifth most popular co-ordered item
 
   - name: int__product_inventory_and_order_statistics
     description: Model for product inventory and order statistics

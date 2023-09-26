@@ -28,8 +28,8 @@ SELECT
     CASE
         WHEN pc.total_orders > 0 THEN Round((pc.promo_orders::FLOAT / pc.total_orders) * 100, 2)
         ELSE 0
-    END AS promo_application_rate
+    END AS PromoApplicationRate
 FROM
     PromoCounts AS pc
 ORDER BY
-    promo_application_rate DESC
+    PromoApplicationRate DESC

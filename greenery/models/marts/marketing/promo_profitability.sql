@@ -11,9 +11,9 @@ SELECT
     SUM(order_total) AS TotalRevenue,
     (SUM(order_total) - (COUNT(DISTINCT o.order_id) * p.discount)) AS CampaignProfit
 FROM
-    {{ source('postgres', 'promos') }} AS p
+    {{ ref('stg_postgres__promos') }} AS p
 LEFT JOIN
-    {{ source('postgres', 'orders') }} AS o
+    {{ ref('stg_postgres__orders') }} AS o
 ON
     p.promo_id = o.promo_id
 GROUP BY

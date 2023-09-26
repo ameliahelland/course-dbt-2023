@@ -13,9 +13,9 @@ WITH PromoSessionEvents AS (
         o.order_id,
         o.created_at AS order_created_at
     FROM
-        {{ source('postgres', 'events') }} AS e
+        {{ ref('stg_postgres__events') }} AS e
     LEFT JOIN
-        {{ source('postgres', 'orders') }} AS o
+        {{ ref('stg_postgres__orders') }} AS o
     ON
         e.order_id = o.order_id
     WHERE

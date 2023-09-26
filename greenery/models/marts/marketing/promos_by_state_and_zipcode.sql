@@ -11,9 +11,9 @@ WITH PromoCounts AS (
         COUNT(DISTINCT o.order_id) AS total_orders,
         COUNT(DISTINCT CASE WHEN o.promo_id IS NOT NULL THEN o.order_id END) AS promo_orders
     FROM
-        {{ source('postgres', 'orders') }} AS o
+        {{ ref('stg_postgres__orders') }} AS o
     JOIN
-        {{ source('postgres', 'addresses') }} AS a
+        {{ ref('stg_postgres__addresses') }} AS a
     ON
         o.address_id = a.address_id
     GROUP BY

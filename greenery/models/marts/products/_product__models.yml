@@ -61,12 +61,6 @@ models:
         description: Name of product
       - name: Revenue
         description: Revenue per product over orders timeframe
-  
-  - name: int__product_pageviews
-    description: Model for pageviews per product
-    columns:
-      - name: ProductName
-      - name: PageViews
 
   - name: int__product_revenues
     description: Model for revenue per product

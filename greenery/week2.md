@@ -198,7 +198,8 @@ decision-making and marketing strategies.
  **Question 4:** *Show the DAG for your project.*
  
  **Answer:**
- ![dbt-dag](https://github.com/ameliahelland/course-dbt-2023/assets/115895001/555f61f2-98c9-49a4-b35c-f972fd7367c8)
+ ![dbt-dag](https://github.com/ameliahelland/course-dbt-2023/assets/115895001/3df096d4-e088-4119-a174-a055f252b4f5)
+
  
 ------------
 

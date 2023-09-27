@@ -62,12 +62,6 @@ models:
       - name: Revenue
         description: Revenue per product over orders timeframe
 
-  - name: int__product_revenues
-    description: Model for revenue per product
-    columns:
-      - name: ProductName
-      - name: Revenue
-
   - name: int__product_inventory_and_order_statistics
     description: Model to capture inventory and order statistics per product
     columns:

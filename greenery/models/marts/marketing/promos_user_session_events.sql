@@ -6,13 +6,13 @@
 
 
 SELECT
-    e.user_id,
-    e.session_id,
-    e.event_id,
-    e.created_at AS event_created_at,
-    o.order_id,
-    o.created_at AS order_created_at,
-    o.promo_id
+    e.user_id AS UserId,
+    e.session_id AS SessionId,
+    e.event_id AS EventId,
+    e.created_at AS EventCreatedAt,
+    o.order_id AS OrderId,
+    o.created_at AS OrderCreatedAt,
+    o.promo_id AS PromoId
 FROM
     {{ ref('stg_postgres__events') }} AS e
 LEFT JOIN

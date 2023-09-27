@@ -175,21 +175,21 @@ ORDER BY
 
 **Answer:** *I made the following models for the following reasons:*
 
-product_inventory_and_order_statistics:
-* This model combines information related to product inventory and order statistics. It includes columns for the product name, the amount of product ordered (InventoryUsed), the current available inventory (Inventory), and the average amount of the product purchased per order (AverageAmountPurchasedPerOrder). By including both inventory and order statistics in a single model, it allows for analysis of how product availability and ordering behavior are related. For example, you can analyze whether low inventory levels impact the average amount purchased per order.
+dim_products:
+* This model combines information in the following intermediate models:
+
+  * int__product_inventory_and_order_statistics:
+    * This model combines information related to product inventory and order statistics. It includes columns for the product name, the amount of product ordered (InventoryUsed), the current available inventory (Inventory), and the average amount of the product purchased per order (AverageAmountPurchasedPerOrder). By including both inventory and order statistics in a single model, it allows for analysis of how product availability and ordering behavior are related. For example, you can analyze whether low inventory levels impact the average amount purchased per order.
  
-product_pageviews:
-* This model focuses on tracking product pageviews. It includes columns for the product name and the number of pageviews per product (PageViews). Keeping pageview data separate from other product-related data allows for analysis of how user interactions and product views correlate with sales or inventory management.
+  * int__product_pageviews:
+    * This model focuses on tracking product pageviews. It includes columns for the product name and the number of pageviews per product (PageViews). Keeping pageview data separate from other product-related data allows for analysis of how user interactions and product views correlate with sales or inventory management.
  
-product_revenues:
-* This model is dedicated to tracking product revenues. It includes columns for the product name and the revenue generated per product over a specified orders timeframe (Revenue). Separating revenue data into its own model facilitates revenue analysis, pricing strategy evaluation, and identification of top-performing products in terms of revenue generation.
- 
-related_products:
-* This model is designed to find and store information about related products. It includes columns for the base product, frequently ordered with product, and the frequency of these two products being ordered together. The purpose of this model is likely to support product recommendations and cross-selling strategies. By identifying frequently co-purchased products, it can help improve product recommendations for users, potentially increasing sales.
+  * int__product_revenues:
+    * This model is dedicated to tracking product revenues. It includes columns for the product name and the revenue generated per product over a specified orders timeframe (Revenue). Separating revenue data into its own model facilitates revenue analysis, pricing strategy evaluation, and identification of top-performing products in terms of revenue generation.
 
 In summary, the organization of these models reflects a modular approach to managing and analyzing different aspects of product data. This 
 separation of concerns allows for more focused and specialized analysis of various product-related aspects, from inventory and order behavior to
-pageviews, revenues, and product relationships. It enables a deeper understanding of product performance and customer behavior, which can inform 
+pageviews, revenues. It enables a deeper understanding of product performance and customer behavior, which can inform 
 decision-making and marketing strategies.
 
 ------------

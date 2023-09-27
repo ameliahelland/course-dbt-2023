@@ -29,6 +29,8 @@ models:
         description: Total orders placed in each zipcode
       - name: PromoOrders
         description: Total orders with promo applied in each zipcode
+      - name: PromoApplicationRate
+        description: Rate of promos being applied to orders within each zipcode
 
   - name: promos_user_session_events
     description: Model for promos across user session events

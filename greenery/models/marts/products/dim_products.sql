@@ -5,12 +5,12 @@
 }}
 
 SELECT
-    pios.ProductName,
-    InventoryUsed,
-    Inventory,
-    AverageAmountPurchasedPerOrder,
-    PageViews,
-    Revenue,
+    pios.product_name,
+    inventory_used,
+    inventory,
+    average_amount_purchased_per_order,
+    pageviews,
+    revenue,
     total_sessions_added_to_cart,
     total_sessions_purchased,
     conversion_rate
@@ -19,12 +19,12 @@ FROM
 LEFT JOIN
     {{ ref('int__product_pageviews') }} AS pp
 ON
-    pios.ProductName = pp.ProductName
+    pios.product_name = pp.product_name
 LEFT JOIN
     {{ ref('int__product_revenues') }} AS pr
 ON
-    pios.ProductName = pr.ProductName
+    pios.product_name = pr.product_name
 LEFT JOIN
     {{ ref('int__product_conversions')}} AS pc
 ON
-    pp.ProductName = pc.product_name
+    pp.product_name = pc.product_name

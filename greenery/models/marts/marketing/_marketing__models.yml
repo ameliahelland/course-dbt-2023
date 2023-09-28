@@ -2,16 +2,16 @@ models:
   - name: promo_profitability
     description: Model for finding how profitable each promo was
     columns:
-      - name: PromoId
+      - name: promo_id
         description: Id of promo
         tests:
           - unique
           - not_null
-      - name: Discount
+      - name: discount
         description: Discount per promo use
-      - name: TotalOrders
+      - name: total_orders
         description: The count of distinct orders with the promo applied
-      - name: CampaignProfit
+      - name: campaign_profit
         description: Total profit for each promo campaign
 
   - name: promos_by_state_and_zipcode
@@ -25,36 +25,36 @@ models:
         description: Zipcode in which order was placed
         tests:
           - not_null
-      - name: TotalOrders
+      - name: total_orders
         description: Total orders placed in each zipcode
-      - name: PromoOrders
+      - name: promo_orders
         description: Total orders with promo applied in each zipcode
-      - name: PromoApplicationRate
+      - name: promo_application_rate
         description: Rate of promos being applied to orders within each zipcode
 
   - name: promos_user_session_events
     description: Model for promos across user session events
     columns:
-      - name: UserId
+      - name: user_id
         description: UUID of user
         tests:
           - not_null
-      - name: SessionId
+      - name: session_id
         description: UUID of session
         tests:
           - not_null
-      - name: EventId
+      - name: event_id
         description: UUID of event
         tests:
           - not_null
-      - name: EventCreatedAt
+      - name: event_created_at
         description: Timestamp of event
         tests:
           - not_null
-      - name: OrderId
+      - name: order_id
         description: UUID of order
-      - name: OrderCreatedAt
+      - name: order_created_at
         description: Timestamp of order being placed
-      - name: PromoId
+      - name: promo_id
         description: IDs of the promos applied to various orders
         

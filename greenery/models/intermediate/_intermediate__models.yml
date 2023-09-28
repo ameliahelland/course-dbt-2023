@@ -2,27 +2,27 @@ models:
   - name: int__product_inventory_and_order_statistics
     description: Model for product inventory and order statistics
     columns:
-      - name: ProductName
+      - name: product_name
         description: Name of product
         tests:
           - unique
           - not_null
-      - name: InventoryUsed
+      - name: inventory_used
         description: The amount of product ordered
-      - name: Inventory
+      - name: inventory
         description: The amount of product currently available
-      - name: AverageAmountPurchasedPerOrder
+      - name: average_amount_purchased_per_order
         description: Average amount of product purchased per order
 
   - name: int__product_pageviews
     description: Model for product pageviews
     columns:
-      - name: ProductName
+      - name: product_name
         description: Name of product
         tests:
           - unique
           - not_null
-      - name: PageViews
+      - name: pageviews
         description: Number of pageviews per product
         tests:
           - positive_values
@@ -30,7 +30,7 @@ models:
   - name: int__product_revenues
     description: Model for revenues per product
     columns:
-      - name: ProductName
+      - name: product_name
         description: Name of product
       - name: Revenue
         description: Revenue per product over orders timeframe

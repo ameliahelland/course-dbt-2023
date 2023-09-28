@@ -2,117 +2,117 @@ models:
   - name: customers_and_churn_status
     description: Contains information indicating which customers have churned
     columns:
-      - name: UserId
+      - name: user_id
         description: UUID of user
         tests:
           - not_null
-      - name: FirstName
+      - name: first_name
         description: First name of user
-      - name: LastName
+      - name: last_name
         description: Last name of user
-      - name: State
+      - name: state
         description: State in which user placed orders
-      - name: Zipcode
+      - name: zipcode
         description: Zipcode in which user placed orders
-      - name: ChurnStatus
+      - name: churn_status
         description: Indicates whether the customer has churned as of 2021-02-11
 
   - name: repeat_customer_orders_and_sessions
     description: Contains information about how often pairs of products are ordered together.
     columns:
-      - name: UserId
+      - name: user_id
         description: UUID of user
         tests:
           - not_null
-      - name: FirstName
+      - name: first_name
         description: First name of user
-      - name: LastName
+      - name: last_name
         description: Last name of user
-      - name: Email
+      - name: email
         description: Email of user
-      - name: TotalOrders
+      - name: total_orders
         description: Total orders placed by user
-      - name: TotalPayments
+      - name: total_payments
         description: Sum of total payments made by user
-      - name: FirstOrderDate
+      - name: first_order_date
         description: User's first order date
-      - name: LastOrderDate
+      - name: last_order_date
         description: User's last order date
-      - name: TotalEvents
+      - name: total_events
         description: Total events per user
-      - name: TotalSessions
+      - name: total_sessions
         description: Total sessions per user
-      - name: UniqueProductsViewed
+      - name: unique_products_viewed
         description: Total unique products viewed per user
 
   - name: customer_segments
     description: Contains information identifying each customer's customer segment.
     columns:
-      - name: UserId
+      - name: user_id
         description: UUID of user
-      - name: FirstName
+      - name: first_name
         description: First name of user
-      - name: LastName
+      - name: last_name
         description: Last name of user
-      - name: CustomerSegment
+      - name: customer_segment
         description: Customer segment each user belongs to
-      - name: TotalOrders
+      - name: total_orders
         description: Total orders placed by user
 
   - name: orders_by_state_and_zipcode
     description: Contains order statistics per state and zipcode.
     columns:
-      - name: State
+      - name: state
         description: State in which users live
-      - name: Zipcode
+      - name: zipcode
         description: Zipcode in which users live
-      - name: OrderCount
+      - name: order_count
         description: Count of orders placed in zipcode
 
   - name: revenue_and_orders_per_hour_of_day
     description: Revenue and total orders placed per hour of day.
     columns:
-      - name: OrderDay
+      - name: order_day
         description: Day of order
-      - name: OrderHour
+      - name: order_hour
         description: Hour of order
-      - name: TotalRevenue
+      - name: total_revenue
         description: Revenue per order hour
-      - name: AverageOrderTotal
+      - name: average_order_total
         description: Average total order payments per hour
-      - name: OrdersPerHour
+      - name: orders_per_hour
         description: Orders made per hour
 
   - name: session_events_and_user_orders
     description: Contains information detailing user order information per session.
     columns:
-      - name: SessionId
+      - name: session_id
         description: UUID of session
-      - name: PageURL
+      - name: page_URL
         description: URL of page where event took place
-      - name: EventType
+      - name: event_type
         description: Type of event
-      - name: UserId
+      - name: user_id
         description: UUID of user
-      - name: FirstName
+      - name: first_name
         description: First name of user
-      - name: LastName
+      - name: last_name
         description: Last name of user
-      - name: Email
+      - name: email
         description: Email of user
-      - name: OrderId
+      - name: order_id
         description: UUID of order
-      - name: OrderCost
+      - name: order_cost
         description: Cost of order
-      - name: ShippingCost
+      - name: shipping_cost
         description: Cost of shipping
-      - name: OrderTotal
+      - name: order_total
         description: Total payment amount per order
-      - name: TrackingId
+      - name: tracking_id
         description: Shipment tracking number
-      - name: ShippingService
+      - name: shipping_service
         description: Shipping service used to deliver order
-      - name: EstimatedDeliveryAt
+      - name: estimated_delivery_at
         description: Estimated delivery date
-      - name: DeliveredAt
+      - name: delivered_at
         description: Timestamp if/when order was delivered

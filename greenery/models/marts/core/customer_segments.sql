@@ -5,15 +5,15 @@
 }}
 
 SELECT
-    u.user_id AS UserId,
-    u.first_name AS FirstName,
-    u.last_name AS LastName,
+    u.user_id,
+    u.first_name,
+    u.last_name,
     CASE
         WHEN COUNT(o.order_id) >= 5 THEN 'High-Value'
         WHEN COUNT(o.order_id) >= 2 THEN 'Regular'
         ELSE 'Infrequent'
-    END AS CustomerSegment,
-    COUNT(o.order_id) as TotalOrders
+    END AS customer_segment,
+    COUNT(o.order_id) as total_orders
 FROM
     {{ ref('stg_postgres__users') }} AS u
 LEFT JOIN

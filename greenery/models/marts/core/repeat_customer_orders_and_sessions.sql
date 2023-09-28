@@ -7,10 +7,10 @@
 WITH RepeatOrderUsers AS (
     SELECT
         o.user_id,
-        COUNT(DISTINCT o.order_id) AS TotalOrders,
-        MAX(o.created_at) AS LatestOrderDate,
-        MIN(o.created_at) AS FirstOrderDate,
-        SUM(o.order_cost) AS TotalPayments
+        COUNT(DISTINCT o.order_id) AS total_orders,
+        MAX(o.created_at) AS latest_order_date,
+        MIN(o.created_at) AS first_order_date,
+        SUM(o.order_cost) AS total_payments
     FROM
         {{ ref('stg_postgres__orders') }} o
     GROUP BY
@@ -20,36 +20,36 @@ WITH RepeatOrderUsers AS (
 ),
 RepeatOrderDetails AS (
     SELECT
-        r.user_id AS UserId,
-        r.TotalOrders,
-        r.FirstOrderDate,
-        r.LatestOrderDate,
-        r.TotalPayments,
-        COUNT(DISTINCT e.event_id) AS TotalEvents,
-        COUNT(DISTINCT e.product_id) AS UniqueProductsViewed,
-        COUNT(DISTINCT e.session_id) AS TotalSessions -- Count of distinct sessions
+        r.user_id,
+        r.total_orders,
+        r.first_order_date,
+        r.latest_order_date,
+        r.total_payments,
+        COUNT(DISTINCT e.event_id) AS total_events,
+        COUNT(DISTINCT e.product_id) AS unique_products_viewed,
+        COUNT(DISTINCT e.session_id) AS total_sessions -- Count of distinct sessions
     FROM
         RepeatOrderUsers r
     LEFT JOIN
         {{ ref('stg_postgres__events') }} e ON r.user_id = e.user_id
     GROUP BY
-        r.user_id, r.TotalOrders, r.FirstOrderDate, r.LatestOrderDate, r.TotalPayments
+        r.user_id, r.total_orders, r.first_order_date, r.latest_order_date, r.total_payments
 )
 SELECT
-    rd.UserId,
-    u.first_name AS FirstName,
-    u.last_name AS LastName,
-    u.email AS Email,
-    rd.TotalOrders,
-    rd.TotalPayments,
-    rd.FirstOrderDate,
-    rd.LatestOrderDate,
-    rd.TotalEvents,
-    rd.TotalSessions, -- Include the count of distinct sessions
-    rd.UniqueProductsViewed
+    rd.user_id,
+    u.first_name,
+    u.last_name,
+    u.email,
+    rd.total_orders,
+    rd.total_payments,
+    rd.first_order_date,
+    rd.latest_order_date,
+    rd.total_events,
+    rd.total_sessions, -- Include the count of distinct sessions
+    rd.unique_products_viewed
 FROM
     RepeatOrderDetails rd
 LEFT JOIN
-    {{ ref('stg_postgres__users') }} u ON rd.UserId = u.user_id
+    {{ ref('stg_postgres__users') }} u ON rd.user_id = u.user_id
 ORDER BY
-    rd.TotalOrders DESC
+    rd.total_orders DESC

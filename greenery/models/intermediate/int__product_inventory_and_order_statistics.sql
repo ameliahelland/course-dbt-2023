@@ -6,19 +6,19 @@
 
 WITH product_inventory AS (
     SELECT
-        p.name AS ProductName,
-        SUM(oi.quantity) AS InventoryUsed,
-        p.Inventory,
-        COUNT(DISTINCT oi.order_id) AS CountOfDistinctOrders
+        p.name AS product_name,
+        SUM(oi.quantity) AS inventory_used,
+        p.inventory,
+        COUNT(DISTINCT oi.order_id) AS total_orders
     FROM {{ ref('stg_postgres__order_items') }} oi
     JOIN {{ ref('stg_postgres__products') }} p
     ON oi.product_id = p.product_id
     GROUP BY ALL
 )
 SELECT
-    ProductName,
-    InventoryUsed,
-    Inventory,
-    ROUND(InventoryUsed / CountOfDistinctOrders, 2) AS AverageAmountPurchasedPerOrder
+    product_name,
+    inventory_used,
+    inventory,
+    ROUND(inventory_used / total_orders, 2) AS average_amount_purchased_per_order
 FROM product_inventory
-ORDER BY inventory - InventoryUsed ASC
+ORDER BY inventory - inventory_used ASC

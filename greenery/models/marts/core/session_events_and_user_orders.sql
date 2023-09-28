@@ -5,22 +5,22 @@
 }}
 
 SELECT
-    e.session_id AS SessionId,
-    e.page_url AS PageURL,
-    e.event_type AS EventType,
-    e.created_at AS EventTimestamp,
-    e.user_id AS UserId,
-    u.first_name AS FirstName,
-    u.last_name AS LastName,
-    u.email AS Email,
-    e.order_id AS OrderId,
-    o.order_cost AS OrderCost,
-    o.shipping_cost AS ShippingCost,
-    o.order_total AS OrderTotal,
-    o.tracking_id AS TrackingId,
-    o.shipping_service AS ShippingService,
-    o.estimated_delivery_at AS EstimatedDeliveryAt,
-    o.delivered_at AS DeliveredAt
+    e.session_id,
+    e.page_url AS page_URL,
+    e.event_type AS event_type,
+    e.created_at AS event_timestamp,
+    e.user_id,
+    u.first_name,
+    u.last_name,
+    u.email,
+    e.order_id,
+    o.order_cost,
+    o.shipping_cost,
+    o.order_total,
+    o.tracking_id,
+    o.shipping_service,
+    o.estimated_delivery_at,
+    o.delivered_at
 FROM
     {{ ref('stg_postgres__events') }} e
 LEFT JOIN
@@ -28,4 +28,4 @@ LEFT JOIN
 LEFT JOIN
     {{ ref('stg_postgres__orders') }} o ON e.order_id = o.order_id
 ORDER BY
-    e.session_id, e.created_at
+    e.created_at, e.session_id

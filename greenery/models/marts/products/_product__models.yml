@@ -2,24 +2,24 @@ models:
   - name: dim_products
     description: Model for all product information
     columns:
-      - name: ProductName
+      - name: product_name
         description: Product name
         tests:
           - unique
           - not_null
-      - name: InventoryUsed
+      - name: inventory_used
         description: How many of each product was ordered
         tests:
           - positive_values
-      - name: Inventory
+      - name: inventory
         description: The amount of inventory available for each product
         tests:
           - positive_values
-      - name: AverageAmountPurchasedPerOrder
+      - name: average_amount_purchased_per_order
         description: Average amount of the product purchased per order
         tests:
           - positive_values
-      - name: PageViews
+      - name: pageviews
         description: The number of total pageviews for this product
           - positive_values
       - name: Revenue

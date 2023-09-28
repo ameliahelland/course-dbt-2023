@@ -7,8 +7,8 @@
 WITH ProductPageViews AS (
     SELECT
         p.product_id,
-        p.name AS ProductName,
-        COUNT(*) AS PageViews
+        p.name AS product_name,
+        COUNT(*) AS Pageviews
     FROM
         {{ ref('stg_postgres__products') }} p
     JOIN
@@ -20,7 +20,7 @@ WITH ProductPageViews AS (
         p.name
 )
 SELECT
-    ProductName,
+    product_name,
     PageViews
 FROM
     ProductPageViews

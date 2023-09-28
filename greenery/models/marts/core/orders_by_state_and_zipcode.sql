@@ -7,7 +7,7 @@
 SELECT
     state,
     zipcode,
-    COUNT(*) AS OrderCount
+    COUNT(*) AS order_count
 FROM
     {{ ref('stg_postgres__orders') }} AS o
 JOIN
@@ -18,4 +18,4 @@ GROUP BY
     state,
     zipcode
 ORDER BY
-    OrderCount DESC
+    order_count DESC

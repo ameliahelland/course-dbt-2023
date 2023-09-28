@@ -7,8 +7,8 @@
 WITH ProductRevenues AS (
     SELECT
         p.product_id,
-        p.name AS ProductName,
-        SUM(oi.quantity * p.price) AS Revenue
+        p.name AS product_name,
+        SUM(oi.quantity * p.price) AS revenue
     FROM
         {{ ref('stg_postgres__products') }} p
     JOIN
@@ -18,9 +18,9 @@ WITH ProductRevenues AS (
         p.name
 )
 SELECT
-    ProductName,
-    Revenue
+    product_name,
+    revenue
 FROM
     ProductRevenues
 ORDER BY
-    Revenue DESC
+    revenue DESC

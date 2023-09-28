@@ -3,7 +3,7 @@ WEEK 2
 
 **Question 1:** *What is our overall conversion rate?*
 
-**Answer:** **0.62*
+**Answer:** *0.62*
 
 **SQL:**
 

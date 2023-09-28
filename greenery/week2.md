@@ -103,12 +103,11 @@ SELECT
   ps.product_name,
   SUM(CASE WHEN spc.product_count > 0 THEN 1 ELSE 0 END) AS total_sessions_added_to_cart,
   COUNT(DISTINCT CASE WHEN soc.order_count > 0 THEN spc.session_id END) AS total_sessions_purchased,
-  ROUND(
-    CASE WHEN SUM(CASE WHEN spc.product_count > 0 THEN 1 ELSE 0 END) = 0 THEN 0.0
-         ELSE COUNT(DISTINCT CASE WHEN soc.order_count > 0 THEN spc.session_id END)::FLOAT /
-              SUM(CASE WHEN spc.product_count > 0 THEN 1 ELSE 0 END)
-    END, 2
-  ) AS conversion_rate
+  CASE
+    WHEN SUM(CASE WHEN spc.product_count > 0 THEN 1 ELSE 0 END) = 0 THEN 0.0
+    ELSE COUNT(DISTINCT CASE WHEN soc.order_count > 0 THEN spc.session_id END)::FLOAT /
+         SUM(CASE WHEN spc.product_count > 0 THEN 1 ELSE 0 END)
+  END AS conversion_rate
 FROM product_sessions ps
 JOIN session_product_counts spc ON ps.session_id = spc.session_id AND ps.product_id = spc.product_id
 JOIN session_order_counts soc ON ps.session_id = soc.session_id
@@ -116,3 +115,4 @@ GROUP BY ps.product_name
 ORDER BY conversion_rate DESC
 ```
 
+------------

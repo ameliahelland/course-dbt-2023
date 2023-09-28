@@ -10,7 +10,10 @@ SELECT
     Inventory,
     AverageAmountPurchasedPerOrder,
     PageViews,
-    Revenue
+    Revenue,
+    total_sessions_added_to_cart,
+    total_sessions_purchased,
+    conversion_rate
 FROM
     {{ ref('int__product_inventory_and_order_statistics') }} AS pios
 LEFT JOIN
@@ -21,3 +24,7 @@ LEFT JOIN
     {{ ref('int__product_revenues') }} AS pr
 ON
     pios.ProductName = pr.ProductName
+LEFT JOIN
+    {{ ref('int__product_conversions')}} AS pc
+ON
+    pp.ProductName = pc.product_name

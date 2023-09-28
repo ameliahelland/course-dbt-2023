@@ -24,3 +24,9 @@ models:
           - positive_values
       - name: Revenue
         description: The amount of revenue each product made
+      - name: total_sessions_added_to_cart
+        description: The count of distinct sessions in which the product was added to a user's cart
+      - name: total_sessions_purchased
+        description: The count of distinct sessions in which the product was purchased by a user
+      - name: conversion_rate
+        description: Number of unique sessions with a purchase event of that product divided by the total number of unique sessions that viewed that product

@@ -34,3 +34,20 @@ models:
         description: Name of product
       - name: Revenue
         description: Revenue per product over orders timeframe
+
+  - name: int__product_conversions
+    description: Model to show the conversion rates and other relevant statistics per product name.
+    columns:
+      - name: product_name
+        tests:
+          - not_null
+      - name: total_sessions_added_to_cart
+        tests:
+          - not_null
+      - name: total_sessions_purchased
+        tests:
+          - not_null
+      - name: conversion_rate
+        tests:
+          - not_null
+          - positive_values

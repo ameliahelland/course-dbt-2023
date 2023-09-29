@@ -11,7 +11,9 @@ SELECT
     a.state,
     a.zipcode,
     CASE
-        WHEN last_order_date IS NULL OR last_order_date < TO_DATE('2021-02-11') - INTERVAL '90 days' THEN 'Churned'
+        WHEN last_order_date IS NULL 
+            OR last_order_date < ({{max_date('stg_postgres__orders', 'created_at')}}) - INTERVAL '90 days' 
+        THEN 'Churned' -- TO_DATE('2021-02-11') - INTERVAL '90 days' THEN 'Churned'
         ELSE 'Active'
     END AS churn_status
 FROM

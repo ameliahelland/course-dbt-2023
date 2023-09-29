@@ -1,0 +1,23 @@
+macros:
+  - name: positive_values
+    description: Tests to see if any rows don't meet the positive values condition
+    docs:
+      show: true
+    arguments:
+      - name: model
+        type: <string>
+        description: Model which the specified column comes from
+      - name: column_name
+        type: <string>
+        description: Column to evaluate when flagging values that don't meet the positive values condition
+  - name: max_date
+    description: Finds the maximum value of a given column in a given model
+    docs:
+      show: true
+    arguments:
+      - name: model
+        type: <string>
+        description: Model which the specified column comes from
+      - name: column_name
+        type: <string>
+        description: Column over which we want to find the maximum value

@@ -186,7 +186,7 @@ ORDER BY
 
  **Question 4:** *Show the DAG for your project.*
  **Answer:**
- <img src="/downloads/dbt-dag.png" alt="DAG" style="height: 100px; width:100px;"/>
+ ![dbt-dag](https://github.com/ameliahelland/course-dbt-2023/assets/115895001/d38dcb90-7e35-4cdc-94ce-ad4f39a2a2ef)
 
 
  **Question 5.1:** *What assumptions are you making about each model? (i.e. why are you adding each test?)*

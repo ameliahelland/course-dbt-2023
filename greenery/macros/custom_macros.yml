@@ -41,3 +41,12 @@ macros:
       - name: column_name
         type: <string>
         description: Column over which we want to find the maximum value
+
+  - name: grant_role
+    description: Grants USAGE and SELECT privileges to the specified role
+    docs:
+      show: true
+    arguments:
+      - name: role
+        type: <string>
+        description: Specifies which role should have the privileges

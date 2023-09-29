@@ -45,7 +45,7 @@ models:
       - name: unique_products_viewed
         description: Total unique products viewed per user
         tests:
-          - in_valid_range:
+          - dbt_utils.accepted_range:
               min_value: 0
               max_value: 30
 

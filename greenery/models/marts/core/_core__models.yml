@@ -44,6 +44,10 @@ models:
         description: Total sessions per user
       - name: unique_products_viewed
         description: Total unique products viewed per user
+        tests:
+          - in_valid_range:
+              min_value: 0
+              max_value: 30
 
   - name: customer_segments
     description: Contains information identifying each customer's customer segment.
@@ -64,8 +68,12 @@ models:
     columns:
       - name: state
         description: State in which users live
+        tests:
+          - unique
       - name: zipcode
         description: Zipcode in which users live
+        tests:
+          - unique
       - name: order_count
         description: Count of orders placed in zipcode
 

@@ -9,10 +9,14 @@ models:
           - not_null
       - name: discount
         description: Discount per promo use
+        tests:
+          - positive_values
       - name: total_orders
         description: The count of distinct orders with the promo applied
+          - positive_values
       - name: campaign_profit
         description: Total profit for each promo campaign
+          - positive_values
 
   - name: promos_by_state_and_zipcode
     description: Model for promos by state and zipcode
@@ -27,10 +31,18 @@ models:
           - not_null
       - name: total_orders
         description: Total orders placed in each zipcode
+        tests:
+          - positive_values
       - name: promo_orders
         description: Total orders with promo applied in each zipcode
+        tests:
+          - positive_values
       - name: promo_application_rate
         description: Rate of promos being applied to orders within each zipcode
+        tests:
+          - in_valid_range:
+              min_value: 0
+              max_value: 100
 
   - name: promos_user_session_events
     description: Model for promos across user session events

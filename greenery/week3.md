@@ -116,3 +116,37 @@ ORDER BY conversion_rate DESC
 ```
 
 ------------
+
+**Question 3:** *Which products had their inventory change between week 2 and week 3?*
+
+**Answer:** *Pothos, Philodendron, Bamboo, ZZ Plant, Monstera, and String of Pearls.*
+
+**SQL:**
+
+```
+WITH InventoryChanges AS (
+   SELECT
+       product_id,
+       name AS product_name,
+       inventory,
+       dbt_updated_at AS change_date,
+       LAG(inventory) OVER (PARTITION BY product_id ORDER BY dbt_updated_at) AS previous_inventory
+   FROM
+       dev_db.dbt_ameliasigmacomputingcom.products_snapshot
+)
+SELECT
+   product_id,
+   product_name,
+   change_date,
+   inventory,
+   previous_inventory,
+   (inventory - previous_inventory) AS inventory_change
+FROM
+   InventoryChanges
+WHERE
+   previous_inventory IS NOT NULL
+   AND inventory <> previous_inventory
+   AND DATE_TRUNC('week', change_date) = DATE_TRUNC('week', CURRENT_DATE())
+ORDER BY
+   product_id, change_date
+```

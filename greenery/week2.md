@@ -2,7 +2,9 @@ WEEK 2
 ==
 
 **Question 1:** *What is our user repeat rate?*
+
 **Answer:** *80%*
+
 **SQL:**
 
 ```
@@ -19,9 +21,13 @@ FROM
     orders_placed_per_user
 ```
 
+__________________
+
 
 **Question 2.1:** *What are good indicators of a user who will likely purchase again?*
+
 **Answer:** *Users with more than one session are more likely to be repeat customers.*
+
 **SQL:**
 
 ```
@@ -95,9 +101,12 @@ ORDER BY
     OrderHour
 ```
 
+__________________
 
 **Question 2.2:** *What are good indicators that a user won't be a repeat customer?*
+
 **Answer:** *Users with one or less sessions are less likely to be repeat customers.*
+
 **SQL:**
 
 ```
@@ -151,58 +160,63 @@ ORDER BY
     COALESCE(uos.distinct_order_count, 0) ASC, uos.last_delivery_date ASC
 ```
 
+__________________
 
 **Question 2.3:** *If you had more data, what features would you want to look into to answer this question?*
+
 **Answer:** *I'd want to see age and gender data to start with.*
 
+__________________
 
 **Question 3:** *Explain the product mart models you added. Why did you organize the models in the way you did?*
-**Answer:** *I made the following models for the following reasons:*
-    product_inventory_and_order_statistics:
-        This model combines information related to product inventory and order statistics. It includes columns for the product name, the amount of
-        product ordered (InventoryUsed), the current available inventory (Inventory), and the average amount of the product purchased per order 
-        (AverageAmountPurchasedPerOrder). By including both inventory and order statistics in a single model, it allows for analysis of how product 
-        availability and ordering behavior are related. For example, you can analyze whether low inventory levels impact the average amount purchased 
-        per order.
-   product_pageviews:
-        This model focuses on tracking product pageviews. It includes columns for the product name and the number of pageviews per product 
-        (PageViews). Keeping pageview data separate from other product-related data allows for analysis of how user interactions and product views 
-        correlate with sales or inventory management.
-   product_revenues:
-        This model is dedicated to tracking product revenues. It includes columns for the product name and the revenue generated per product over a 
-        specified orders timeframe (Revenue).
-        Separating revenue data into its own model facilitates revenue analysis, pricing strategy evaluation, and identification of top-performing 
-        products in terms of revenue generation.
-   related_products:
-         This model is designed to find and store information about related products. It includes columns for the base product, frequently ordered 
-         with product, and the frequency of these two products being ordered together. The purpose of this model is likely to support product 
-         recommendations and cross-selling strategies. By identifying frequently co-purchased products, it can help improve product recommendations 
-         for users, potentially increasing sales.
- In summary, the organization of these models reflects a modular approach to managing and analyzing different aspects of product data. This 
- separation of concerns allows for more focused and specialized analysis of various product-related aspects, from inventory and order behavior to
- pageviews, revenues, and product relationships. It enables a deeper understanding of product performance and customer behavior, which can inform 
- decision-making and marketing strategies.
 
+**Answer:** *I made the following models for the following reasons:*
+
+* product_inventory_and_order_statistics:
+  * This model combines information related to product inventory and order statistics. It includes columns for the product name, the amount of product ordered (InventoryUsed), the current available inventory (Inventory), and the average amount of the product purchased per order (AverageAmountPurchasedPerOrder). By including both inventory and order statistics in a single model, it allows for analysis of how product availability and ordering behavior are related. For example, you can analyze whether low inventory levels impact the average amount purchased per order.
+    
+* product_pageviews:
+  * This model focuses on tracking product pageviews. It includes columns for the product name and the number of pageviews per product (PageViews). Keeping pageview data separate from other product-related data allows for analysis of how user interactions and product views correlate with sales or inventory management.
+    
+* product_revenues:
+  * This model is dedicated to tracking product revenues. It includes columns for the product name and the revenue generated per product over a specified orders timeframe (Revenue). Separating revenue data into its own model facilitates revenue analysis, pricing strategy evaluation, and identification of top-performing products in terms of revenue generation.
+    
+* related_products:
+  * This model is designed to find and store information about related products. It includes columns for the base product, frequently ordered with product, and the frequency of these two products being ordered together. The purpose of this model is likely to support product recommendations and cross-selling strategies. By identifying frequently co-purchased products, it can help improve product recommendations for users, potentially increasing sales.
+
+In summary, the organization of these models reflects a modular approach to managing and analyzing different aspects of product data. This separation of concerns allows for more focused and specialized analysis of various product-related aspects, from inventory and order behavior to pageviews, revenues, and product relationships. It enables a deeper understanding of product performance and customer behavior, which can inform decision-making and marketing strategies.
+
+__________________
 
  **Question 4:** *Show the DAG for your project.*
+ 
  **Answer:**
  ![dbt-dag](https://github.com/ameliahelland/course-dbt-2023/assets/115895001/d38dcb90-7e35-4cdc-94ce-ad4f39a2a2ef)
 
+__________________
 
  **Question 5.1:** *What assumptions are you making about each model? (i.e. why are you adding each test?)*
+ 
  **Answer:** *I'm assuming that the counts of things like sessions, orders, and pageviews should be positive.*
 
+__________________
 
  **Question 5.2:** *Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?*
+ 
  **Answer:** *I didn't find any bad data with my tests so I didn't clean anything.*
 
+__________________
 
  **Question 6:** *Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.*
+ 
  **Answer:** *I'd write a cron job to run the dbt tests on a schedule, and I'd alert stakeholders by scheduling an export of the bad data rows.*
 
+__________________
 
  **Question 7:** *Which products had their inventory change from week 1 to week 2?*
+ 
  **Answer:** *Pothos, Philodendron, Monstera, String of pearls have had their inventory change between week 1 and week 2.*
+ 
  **SQL:**
 
  ```

@@ -1,4 +1,18 @@
 models:
+  - name: dim_orders
+    description: Contains information about the products included in each order
+    columns:
+      - name: session_id
+        description: UUID of the session in which the product was ordered
+      - name: product_id
+        description: UUID of the product which was ordered
+      - name: cart_event_id
+        description: UUID of the "add_to_cart" event
+      - name: checkout_event_id
+        description: UUID of the "checkout" event
+      - name: order_id
+        description: UUID of the order.
+
   - name: customers_and_churn_status
     description: Contains information indicating which customers have churned
     columns:

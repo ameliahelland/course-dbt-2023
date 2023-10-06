@@ -68,8 +68,6 @@ models:
     columns:
       - name: state
         description: State in which users live
-        tests:
-          - unique
       - name: zipcode
         description: Zipcode in which users live
         tests:

@@ -7,6 +7,7 @@
 WITH product_inventory AS (
     SELECT
         p.name AS product_name,
+        p.product_id,
         SUM(oi.quantity) AS inventory_used,
         p.inventory,
         COUNT(DISTINCT oi.order_id) AS total_orders
@@ -17,6 +18,7 @@ WITH product_inventory AS (
 )
 SELECT
     product_name,
+    product_id,
     inventory_used,
     inventory,
     ROUND(inventory_used / total_orders, 2) AS average_amount_purchased_per_order

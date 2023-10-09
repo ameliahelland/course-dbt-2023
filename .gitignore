@@ -130,3 +130,6 @@ dmypy.json
 
 # Snowflake profile
 greenery/profiles.yml
+
+# Docker file
+.gitpod.Dockerfile

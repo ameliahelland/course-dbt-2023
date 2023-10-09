@@ -123,7 +123,7 @@ GROUP BY
 
 **Question 4:** *How are our users moving through the product funnel?*
 
-**Answer:** **
+**Answer:** *Everyone who visits the site has at least one pageview, and approximately 80% of sessions involve an "add to cart" event. Unfortunately, the cart dropoff rate is over 20%... so more than 20% of people who add items to their cart never check out.*
 
 **SQL:**
 

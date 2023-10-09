@@ -11,7 +11,7 @@ models:
         description: How many of each product was ordered
         tests:
           - positive_values
-      - name: inventory
+      - name: inventory_remaining
         description: The amount of inventory available for each product
         tests:
           - positive_values
@@ -22,7 +22,7 @@ models:
       - name: pageviews
         description: The number of total pageviews for this product
           - positive_values
-      - name: Revenue
+      - name: revenue
         description: The amount of revenue each product made
       - name: total_sessions_added_to_cart
         description: The count of distinct sessions in which the product was added to a user's cart

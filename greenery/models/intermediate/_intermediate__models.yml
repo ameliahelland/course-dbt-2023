@@ -9,8 +9,10 @@ models:
           - not_null
       - name: inventory_used
         description: The amount of product ordered
-      - name: inventory
+      - name: inventory_remaining
         description: The amount of product currently available
+      - name: revenue
+        description: The product's revenue, calculated as SUM(quantity * price)
       - name: average_amount_purchased_per_order
         description: Average amount of product purchased per order
 

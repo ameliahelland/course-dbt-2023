@@ -8,7 +8,7 @@ SELECT
     pios.product_name,
     pios.product_id,
     inventory_used,
-    inventory,
+    inventory_remaining,
     average_amount_purchased_per_order,
     pageviews,
     revenue,

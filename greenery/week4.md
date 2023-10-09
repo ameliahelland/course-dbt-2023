@@ -199,7 +199,7 @@ GROUP BY total_site_visits
 
 **Question 5:** *Which steps in the funnel have largest drop off points?*
 
-**Answer:** *The cart dropoff rate is the greatest. This means that there are way more product pageviews than total products added to cart.*
+**Answer:** *The cart dropoff rate is the greatest. This means that there are way more product pageviews than total products added to cart. See a product performance dashboard with a funnel diagram (and dropoff statistics) here: https://app.sigmacomputing.com/corise-dbt/workbook/Greenery-Product-Performance-46CgcCO0CfdzldPoOLFUsb*
 
 **SQL:**
 

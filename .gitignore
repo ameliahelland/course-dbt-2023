@@ -133,3 +133,4 @@ greenery/profiles.yml
 
 # Docker file
 .gitpod.Dockerfile
+.gitpod.yml

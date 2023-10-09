@@ -2,6 +2,7 @@ exposures:
   description: >
     Models that are critical to the product funnel dashboard
   type: dashboard
+  url: https://app.sigmacomputing.com/corise-dbt/workbook/workbook-46CgcCO0CfdzldPoOLFUsb?:link_source=share
   maturity: high
   owner:
      name: Amelia Helland

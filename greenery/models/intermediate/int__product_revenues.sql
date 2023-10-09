@@ -11,7 +11,7 @@ WITH ProductRevenues AS (
         SUM(oi.quantity * p.price) AS revenue
     FROM
         {{ ref('stg_postgres__products') }} p
-    JOIN
+    LEFT JOIN
         {{ ref('stg_postgres__order_items') }} oi ON p.product_id = oi.product_id
     GROUP BY
         p.product_id,

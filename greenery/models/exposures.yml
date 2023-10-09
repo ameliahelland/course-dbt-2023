@@ -1,0 +1,14 @@
+exposures:
+  description: >
+    Models that are critical to the product funnel dashboard
+  type: dashboard
+  maturity: high
+  owner:
+     name: Amelia Helland
+     email: amelia@greenery.com
+  depends_on:
+     - ref('dim_products')
+     - ref('stg_postgres__orders')
+     - ref('stg_postgres__order_items')
+     - ref('stg_postgres__addresses')
+     - ref('stg_postgres__products')
